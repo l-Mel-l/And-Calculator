@@ -21,14 +21,17 @@ public class MainActivity extends AppCompatActivity {
         try {
             number1 = (EditText) findViewById(R.id.editText);
             number2 = (EditText) findViewById(R.id.editText2);
-            double syllable1 = Double.parseDouble(number1.getText().toString());
-            double syllable2 = Double.parseDouble(number2.getText().toString());
-            double result = syllable1 + syllable2;
+            Integer syllable1 = Integer.parseInt(number1.getText().toString());
+            Integer syllable2 = Integer.parseInt(number2.getText().toString());
+            Integer result = syllable1 + syllable2;
             Intent intent = new Intent(this, ResultActivity.class);
         if (syllable2<0){
             intent.putExtra("answer", syllable1+" + "+"("+syllable2+")"+" = "+ result);
-            startActivity(intent);
-        }}
+            startActivity(intent);}
+        else{
+            intent.putExtra("answer", syllable1+" + "+syllable2+" = "+ result);
+            startActivity(intent);}
+        }
         catch (Exception ex){
             Intent intent = new Intent(this, ResultActivity.class);
             String Error ="Введено неверное значение";
